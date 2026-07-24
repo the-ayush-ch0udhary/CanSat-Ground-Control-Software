@@ -185,7 +185,7 @@ ConSat-main/
 ## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/<repository-name>.git
+git clone https://github.com/the-ayush-ch0udhary/CanSat-Ground-Control-Software
 
 cd ConSat-main
 ```
@@ -241,9 +241,9 @@ http://localhost:8000
 ```bash
 cd ../frontend
 
-npm install
+yarn install
 
-npm start
+yarn start
 ```
 
 Frontend runs at
@@ -297,6 +297,17 @@ POST /api/mission/stop
 ```
 GET /api/export/csv
 ```
+
+---
+
+# 📸 Screenshots
+
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
+![alt text](image-4.png)
+![alt text](image-5.png)
 
 ---
 
