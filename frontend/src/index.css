@@ -1,0 +1,262 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 222 47% 7%;
+        --foreground: 220 14% 96%;
+        --card: 220 33% 12%;
+        --card-foreground: 220 14% 96%;
+        --popover: 220 33% 10%;
+        --popover-foreground: 220 14% 96%;
+        --primary: 190 100% 50%;
+        --primary-foreground: 220 40% 8%;
+        --secondary: 220 33% 15%;
+        --secondary-foreground: 220 14% 96%;
+        --muted: 220 20% 18%;
+        --muted-foreground: 220 10% 65%;
+        --accent: 220 33% 15%;
+        --accent-foreground: 220 14% 96%;
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 220 15% 20%;
+        --input: 220 15% 20%;
+        --ring: 190 100% 50%;
+        --chart-1: 190 100% 50%;
+        --chart-2: 145 80% 45%;
+        --chart-3: 35 95% 55%;
+        --chart-4: 0 85% 60%;
+        --chart-5: 220 90% 60%;
+        --radius: 0.5rem;
+    }
+    .dark {
+        --background: 222 47% 7%;
+        --foreground: 220 14% 96%;
+        --card: 220 33% 12%;
+        --card-foreground: 220 14% 96%;
+        --popover: 220 33% 10%;
+        --popover-foreground: 220 14% 96%;
+        --primary: 190 100% 50%;
+        --primary-foreground: 220 40% 8%;
+        --secondary: 220 33% 15%;
+        --secondary-foreground: 220 14% 96%;
+        --muted: 220 20% 18%;
+        --muted-foreground: 220 10% 65%;
+        --accent: 220 33% 15%;
+        --accent-foreground: 220 14% 96%;
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 220 15% 20%;
+        --input: 220 15% 20%;
+        --ring: 190 100% 50%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    html,
+    body,
+    #root {
+        height: 100%;
+    }
+    body {
+        margin: 0;
+        font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+        background-color: #0b0f19;
+        color: #f3f4f6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-image:
+            radial-gradient(
+                circle at 20% 15%,
+                rgba(0, 240, 255, 0.05),
+                transparent 40%
+            ),
+            radial-gradient(
+                circle at 85% 85%,
+                rgba(59, 130, 246, 0.05),
+                transparent 45%
+            ),
+            linear-gradient(
+                rgba(255, 255, 255, 0.015) 1px,
+                transparent 1px
+            ),
+            linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.015) 1px,
+                transparent 1px
+            );
+        background-size:
+            100% 100%,
+            100% 100%,
+            32px 32px,
+            32px 32px;
+    }
+    code,
+    .mono {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+    }
+}
+
+@layer components {
+    .font-orbitron {
+        font-family: "Orbitron", ui-sans-serif, system-ui, sans-serif;
+        letter-spacing: 0.06em;
+    }
+    .font-mono-tab {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-variant-numeric: tabular-nums;
+    }
+    .gcs-card {
+        background-color: #131b2b;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 12px;
+        box-shadow:
+            0 1px 0 rgba(255, 255, 255, 0.03) inset,
+            0 8px 24px rgba(0, 0, 0, 0.45);
+    }
+    .gcs-card-active {
+        border-color: rgba(0, 240, 255, 0.35);
+        box-shadow:
+            0 0 0 1px rgba(0, 240, 255, 0.15),
+            0 0 24px rgba(0, 240, 255, 0.08);
+    }
+    .glow-cyan {
+        text-shadow: 0 0 8px rgba(0, 240, 255, 0.55);
+    }
+    .glow-green {
+        text-shadow: 0 0 8px rgba(16, 185, 129, 0.55);
+    }
+    .glow-red {
+        text-shadow: 0 0 8px rgba(239, 68, 68, 0.55);
+    }
+    .glow-orange {
+        text-shadow: 0 0 8px rgba(245, 158, 11, 0.55);
+    }
+    .scanline::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.02) 0px,
+            rgba(255, 255, 255, 0.02) 1px,
+            transparent 1px,
+            transparent 3px
+        );
+        border-radius: inherit;
+    }
+    .pulse-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        display: inline-block;
+    }
+    .pulse-dot.on {
+        background: #10b981;
+        box-shadow: 0 0 12px rgba(16, 185, 129, 0.9);
+        animation: gcs-pulse 1.6s ease-in-out infinite;
+    }
+    .pulse-dot.off {
+        background: #6b7280;
+    }
+    .pulse-dot.warn {
+        background: #f59e0b;
+        box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+        animation: gcs-pulse 1.2s ease-in-out infinite;
+    }
+    .pulse-dot.crit {
+        background: #ef4444;
+        box-shadow: 0 0 12px rgba(239, 68, 68, 0.9);
+        animation: gcs-pulse 0.9s ease-in-out infinite;
+    }
+    .telemetry-value {
+        font-family: "Orbitron", sans-serif;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: 0.02em;
+    }
+    .value-flash {
+        animation: value-flash-anim 0.5s ease-out;
+    }
+}
+
+@keyframes gcs-pulse {
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.55;
+        transform: scale(0.9);
+    }
+}
+@keyframes value-flash-anim {
+    0% {
+        color: #ffffff;
+        text-shadow: 0 0 10px rgba(0, 240, 255, 0.9);
+    }
+    100% {
+        color: inherit;
+    }
+}
+@keyframes spin-slow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.leaflet-container {
+    background: #0b0f19 !important;
+    outline: none;
+}
+.leaflet-tile-pane {
+    filter: brightness(0.85) contrast(1.05);
+}
+.leaflet-control-attribution {
+    background: rgba(11, 15, 25, 0.7) !important;
+    color: #9ca3af !important;
+    font-size: 10px !important;
+}
+.leaflet-control-attribution a {
+    color: #22d3ee !important;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 240, 255, 0.3);
+}
+
+/* Night Mission Mode (deeper black, dimmer accents for dark rooms) */
+html.night-mode body {
+    background-color: #04070f;
+    background-image:
+        radial-gradient(circle at 20% 15%, rgba(0, 240, 255, 0.03), transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(59, 130, 246, 0.03), transparent 45%),
+        linear-gradient(rgba(255, 255, 255, 0.008) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.008) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+}
+html.night-mode .gcs-card {
+    background-color: #0a1220;
+}
+html.night-mode header {
+    background-color: rgba(4, 7, 15, 0.95) !important;
+}
